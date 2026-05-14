@@ -20,7 +20,7 @@ export default function RegisterPage() {
               <input 
                 type="text" 
                 id="schoolName" 
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
                 placeholder="SMA Negeri 1 ..."
                 required
               />
@@ -31,7 +31,7 @@ export default function RegisterPage() {
                 <input 
                   type="text" 
                   id="subdomain" 
-                  className="w-full px-4 py-3 rounded-l-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-l-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
                   placeholder="sman1"
                   required
                 />
@@ -47,7 +47,7 @@ export default function RegisterPage() {
             <input 
               type="text" 
               id="fullName" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="Nama Lengkap Anda"
               required
             />
@@ -58,7 +58,7 @@ export default function RegisterPage() {
             <input 
               type="email" 
               id="email" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="admin@sekolah.com"
               required
             />
@@ -69,7 +69,7 @@ export default function RegisterPage() {
             <input 
               type="password" 
               id="password" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="Minimal 8 karakter"
               required
             />

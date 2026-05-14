@@ -12,38 +12,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Force high contrast for form inputs */
+/* Force high contrast for form inputs globally */
 input, textarea, select {
-  color: #0f172a !important; /* Ensure text is visible in inputs */
+  color: #000000 !important; /* Definitive black text for typing */
   background-color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  input, textarea, select {
-    color: #f8fafc !important;
-    background-color: #1e293b;
-    border-color: #334155;
-  }
-  input::placeholder {
-    color: #94a3b8 !important;
-  }
+/* Placeholder colors */
+input::placeholder {
+  color: #64748b !important; /* Slate 500 for visible placeholders */
 }
 
-/* Fix placeholder colors in light mode */
-input::placeholder {
-  color: #94a3b8 !important; /* Slate 400 */
-}
 
