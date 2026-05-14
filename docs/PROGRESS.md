@@ -14,6 +14,6 @@ Log progres pengembangan proyek SaaS Manajemen Sekolah (sekolah.app).
 - **[Selesai]** Inisialisasi proyek Next.js untuk frontend utama.
 - **[Selesai]** Membuat project di Supabase.
 - **[Selesai]** Setup Supabase Auth & SSR Utilities di Next.js.
-- [ ] Menyusun skema database awal (Multi-tenant schema) di Supabase.
+- **[Selesai]** Menyusun skema database awal (Multi-tenant schema) di Supabase.
 - [ ] Membuat halaman Landing Page SaaS dasar.
 - [ ] Membuat halaman Auth (Login/Register).
