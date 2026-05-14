@@ -87,3 +87,25 @@ export async function registerSchoolAction(formData: FormData) {
 
   return { success: true, message: 'Sekolah berhasil didaftarkan! Silakan cek email Anda untuk konfirmasi.' }
 }
+
+export async function loginAction(formData: FormData) {
+  const email = formData.get('email') as string
+  const password = formData.get('password') as string
+
+  if (!email || !password) {
+    return { error: 'Email dan password wajib diisi.' }
+  }
+
+  const supabase = await createClient()
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+
+  if (error) {
+    return { error: 'Email atau password salah.' }
+  }
+
+  return { success: true }
+}
