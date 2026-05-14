@@ -1,7 +1,33 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import { BookOpen } from 'lucide-react'
+import { Turnstile } from '@marsidev/react-turnstile'
 
 export default function RegisterPage() {
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
+    if (!turnstileToken) {
+      alert("Mohon selesaikan verifikasi keamanan (CAPTCHA) terlebih dahulu.")
+      return
+    }
+
+    setIsSubmitting(true)
+    // TODO: Send data to Supabase Auth and API
+    console.log("Form submitted with Turnstile Token:", turnstileToken)
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false)
+      alert("Ini adalah simulasi pendaftaran berhasil.")
+    }, 1500)
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-6 py-12">
       <div className="w-full max-w-xl bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
@@ -13,7 +39,7 @@ export default function RegisterPage() {
           <p className="text-gray-500 text-sm mt-1">Langkah pertama menuju digitalisasi sekolah yang utuh</p>
         </div>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="schoolName">Nama Sekolah</label>
@@ -75,11 +101,25 @@ export default function RegisterPage() {
             />
           </div>
 
+          {/* Cloudflare Turnstile Widget */}
+          <div className="flex justify-center mt-6">
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} // Local testing dummy key fallback
+              onSuccess={(token) => setTurnstileToken(token)}
+              options={{ theme: 'light' }}
+            />
+          </div>
+
           <button 
             type="submit" 
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3.5 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md hover:shadow-lg active:scale-[0.98] mt-4"
+            disabled={isSubmitting || !turnstileToken}
+            className={`w-full text-white font-semibold py-3.5 rounded-lg transition-all shadow-md mt-4 ${
+              isSubmitting || !turnstileToken 
+              ? 'bg-gray-400 cursor-not-allowed' 
+              : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg active:scale-[0.98]'
+            }`}
           >
-            Buat Akun Sekolah
+            {isSubmitting ? 'Memproses...' : 'Buat Akun Sekolah'}
           </button>
         </form>
 
@@ -93,3 +133,4 @@ export default function RegisterPage() {
     </div>
   )
 }
+
