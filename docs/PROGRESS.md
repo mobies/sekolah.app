@@ -15,5 +15,7 @@ Log progres pengembangan proyek SaaS Manajemen Sekolah (sekolah.app).
 - **[Selesai]** Membuat project di Supabase.
 - **[Selesai]** Setup Supabase Auth & SSR Utilities di Next.js.
 - **[Selesai]** Menyusun skema database awal (Multi-tenant schema) di Supabase.
-- [ ] Membuat halaman Landing Page SaaS dasar.
-- [ ] Membuat halaman Auth (Login/Register).
+- **[Selesai]** Membuat halaman Landing Page SaaS dasar.
+- **[Selesai]** Membuat halaman Auth (Login/Register).
+- [ ] Menyambungkan Form Register/Login dengan API Supabase Auth.
+- [ ] Membuat kerangka Dashboard Superadmin.
