@@ -4,28 +4,41 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { BookOpen } from 'lucide-react'
 import { Turnstile } from '@marsidev/react-turnstile'
+import { registerSchoolAction } from '@/app/actions/auth'
 
 export default function RegisterPage() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [message, setMessage] = useState<{ type: 'error' | 'success', text: string } | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setMessage(null)
     
     if (!turnstileToken) {
-      alert("Mohon selesaikan verifikasi keamanan (CAPTCHA) terlebih dahulu.")
+      setMessage({ type: 'error', text: 'Mohon selesaikan verifikasi keamanan (CAPTCHA) terlebih dahulu.' })
       return
     }
 
     setIsSubmitting(true)
-    // TODO: Send data to Supabase Auth and API
-    console.log("Form submitted with Turnstile Token:", turnstileToken)
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const formData = new FormData(e.currentTarget)
+      formData.append('turnstileToken', turnstileToken)
+      
+      const result = await registerSchoolAction(formData)
+      
+      if (result.error) {
+        setMessage({ type: 'error', text: result.error })
+      } else if (result.success) {
+        setMessage({ type: 'success', text: result.message! })
+        // Opsional: Redirect atau reset form di sini
+      }
+    } catch (err) {
+      setMessage({ type: 'error', text: 'Terjadi kesalahan sistem yang tidak terduga.' })
+    } finally {
       setIsSubmitting(false)
-      alert("Ini adalah simulasi pendaftaran berhasil.")
-    }, 1500)
+    }
   }
 
   return (
@@ -39,6 +52,12 @@ export default function RegisterPage() {
           <p className="text-gray-500 text-sm mt-1">Langkah pertama menuju digitalisasi sekolah yang utuh</p>
         </div>
 
+        {message && (
+          <div className={`p-4 mb-6 rounded-lg text-sm font-medium ${message.type === 'error' ? 'bg-red-50 text-red-600 border border-red-100' : 'bg-emerald-50 text-emerald-600 border border-emerald-100'}`}>
+            {message.text}
+          </div>
+        )}
+
         <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
@@ -46,6 +65,7 @@ export default function RegisterPage() {
               <input 
                 type="text" 
                 id="schoolName" 
+                name="schoolName"
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
                 placeholder="SMA Negeri 1 ..."
                 required
@@ -57,6 +77,7 @@ export default function RegisterPage() {
                 <input 
                   type="text" 
                   id="subdomain" 
+                  name="subdomain"
                   className="w-full px-4 py-3 rounded-l-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
                   placeholder="sman1"
                   required
@@ -73,6 +94,7 @@ export default function RegisterPage() {
             <input 
               type="text" 
               id="fullName" 
+              name="fullName"
               className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="Nama Lengkap Anda"
               required
@@ -84,6 +106,7 @@ export default function RegisterPage() {
             <input 
               type="email" 
               id="email" 
+              name="email"
               className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="admin@sekolah.com"
               required
@@ -95,6 +118,7 @@ export default function RegisterPage() {
             <input 
               type="password" 
               id="password" 
+              name="password"
               className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-black placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="Minimal 8 karakter"
               required
