@@ -19,7 +19,7 @@ export default function LoginPage() {
             <input 
               type="email" 
               id="email" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="nama@sekolah.com"
               required
             />
@@ -27,12 +27,12 @@ export default function LoginPage() {
           <div>
             <div className="flex items-center justify-between mb-1">
               <label className="block text-sm font-medium text-gray-700" htmlFor="password">Password</label>
-              <Link href="#" className="text-sm text-blue-600 hover:underline">Lupa password?</Link>
+              <Link href="#" className="text-sm text-blue-600 hover:text-blue-700 font-medium hover:underline transition-colors">Lupa password?</Link>
             </div>
             <input 
               type="password" 
               id="password" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="••••••••"
               required
             />
@@ -40,10 +40,11 @@ export default function LoginPage() {
 
           <button 
             type="submit" 
-            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3.5 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
           >
             Masuk
           </button>
+
         </form>
 
         <p className="text-center text-sm text-gray-600 mt-8">

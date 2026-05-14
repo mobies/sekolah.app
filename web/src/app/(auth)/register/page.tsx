@@ -20,22 +20,22 @@ export default function RegisterPage() {
               <input 
                 type="text" 
                 id="schoolName" 
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
                 placeholder="SMA Negeri 1 ..."
                 required
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="subdomain">Subdomain URL</label>
-              <div className="flex items-center">
+              <div className="flex items-center shadow-sm rounded-lg">
                 <input 
                   type="text" 
                   id="subdomain" 
-                  className="w-full px-4 py-3 rounded-l-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-l-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
                   placeholder="sman1"
                   required
                 />
-                <span className="bg-gray-100 px-4 py-3 border border-l-0 border-gray-300 rounded-r-lg text-gray-500 text-sm">
+                <span className="bg-gray-50 px-4 py-3 border border-l-0 border-gray-300 rounded-r-lg text-gray-500 text-sm font-medium">
                   .sekolah.app
                 </span>
               </div>
@@ -47,7 +47,7 @@ export default function RegisterPage() {
             <input 
               type="text" 
               id="fullName" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="Nama Lengkap Anda"
               required
             />
@@ -58,7 +58,7 @@ export default function RegisterPage() {
             <input 
               type="email" 
               id="email" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="admin@sekolah.com"
               required
             />
@@ -69,7 +69,7 @@ export default function RegisterPage() {
             <input 
               type="password" 
               id="password" 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-all shadow-sm"
               placeholder="Minimal 8 karakter"
               required
             />
@@ -77,7 +77,7 @@ export default function RegisterPage() {
 
           <button 
             type="submit" 
-            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors mt-4"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3.5 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md hover:shadow-lg active:scale-[0.98] mt-4"
           >
             Buat Akun Sekolah
           </button>
