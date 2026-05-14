@@ -11,6 +11,9 @@ Log progres pengembangan proyek SaaS Manajemen Sekolah (sekolah.app).
 - **[Selesai]** Membuat dokumen `ROADMAP.md` (Jadwal pengembangan).
 
 ## Next Steps (Berdasarkan Fase 1 Roadmap)
-- [ ] Inisialisasi proyek Next.js untuk frontend utama.
-- [ ] Membuat project di Supabase dan menyusun skema database awal (Multi-tenant schema).
-- [ ] Setup Supabase Auth di Next.js.
+- **[Selesai]** Inisialisasi proyek Next.js untuk frontend utama.
+- **[Selesai]** Membuat project di Supabase.
+- **[Selesai]** Setup Supabase Auth & SSR Utilities di Next.js.
+- [ ] Menyusun skema database awal (Multi-tenant schema) di Supabase.
+- [ ] Membuat halaman Landing Page SaaS dasar.
+- [ ] Membuat halaman Auth (Login/Register).
