@@ -18,4 +18,6 @@ Log progres pengembangan proyek SaaS Manajemen Sekolah (sekolah.app).
 - **[Selesai]** Membuat halaman Landing Page SaaS dasar.
 - **[Selesai]** Membuat halaman Auth (Login/Register).
 - **[Selesai]** Menyambungkan Form Register/Login dengan API Supabase Auth.
-- [ ] Membuat kerangka Dashboard Superadmin.
+- **[Selesai]** Membuat kerangka Dashboard Superadmin.
+- [ ] Implementasi Logika CRUD untuk Data Siswa & Guru.
+- [ ] Setup Dashboard Superadmin untuk manajemen tenant.
