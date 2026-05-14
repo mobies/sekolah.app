@@ -80,6 +80,27 @@ Ini adalah server fisik/virtual khusus untuk memproses hardware IoT (RFID/Finger
 
 ---
 
+## Tahap 6: Monitoring & Error Tracking (Sentry)
+Agar kita tahu jika ada bug sebelum user melaporkannya.
+
+1. **Buat Akun:** Daftar di [Sentry.io](https://sentry.io/).
+2. **Buat Project:** Pilih platform **Next.js**.
+3. **Instalasi:** Jalankan perintah `npx @sentry/wizard@latest -i nextjs` (ini akan kita lakukan nanti saat setup kode).
+4. **Keuntungan:** Sentry akan menangkap error di sisi client (browser siswa) maupun server (Next.js/Golang) secara real-time.
+
+---
+
+## Tahap 7: Integrasi dengan Gemini CLI (Agent Control)
+Agar saya (Gemini CLI) bisa membantu Anda mengembangkan, memperbaiki bug, dan mengontrol infrastruktur secara maksimal.
+
+1. **Izin File System:** Pastikan Gemini CLI memiliki akses ke folder project ini. (Sudah dilakukan).
+2. **Environment Variables:** Simpan file `.env.local` di root folder. Saya bisa membaca file ini untuk mengetahui kredensial API (Supabase/Sentry) sehingga saya bisa menjalankan tes atau perintah deploy.
+3. **Log Access:** Jika ada error di VPS (Tahap 5), Anda bisa memberikan output log-nya kepada saya, dan saya akan menganalisis serta memberikan perintah perbaikan.
+4. **Consistency Check:** Setiap kali Anda meminta fitur baru, saya akan selalu merujuk ke `GEMINI.md` untuk memastikan fitur tersebut tidak melanggar arsitektur SaaS yang sudah kita sepakati.
+5. **Shell Command:** Saya bisa menjalankan perintah terminal (seperti `npm run build`, `git push`, atau `supabase db push`) untuk memastikan alur kerja otomatis.
+
+---
+
 ## Urutan Eksekusi Saat Ini (Roadmap Kesesuaian)
 Saat ini Anda **tidak perlu** menyewa VPS (Tahap 5) atau Firebase (Tahap 4) terlebih dahulu. 
 
